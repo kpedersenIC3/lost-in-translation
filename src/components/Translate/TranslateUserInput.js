@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
 import TranslateTranslation from "./TranslateTranslation.js"
-
 const TranslateUserInput = () => {
 
     const [userinput, setUserInput] = useState('')
-    const [buttonPushed, setButtonPushed] = useState(false)
-    const [letterArray, setLetterArray] = useState([])
-    //Test commentary
+    let [buttonPushed, setButtonPushed] = useState(false)
+    let [letterArray, setLetterArray] = useState([])
 
 
     const handleOnChange = (event) => {
         setUserInput(event.target.value)
+        letterArray.length = 0
     }
+
     const handleOnClick = () => {
         setButtonPushed(true)
         let id = 0
@@ -22,34 +22,39 @@ const TranslateUserInput = () => {
             letterArray.push(letterObject)
             id++
         }
-
         console.log("letterArray",letterArray)
-
+        console.log("buttoninhandleonclick",buttonPushed)
     }
-
-    const translate = letterArray.map((letter)=>{
+    //THIS NEEDS TO BE RERUN ON RETRANSLATION
+    let translate = letterArray.map((letter)=>{
+        console.log("buttonintranslate",buttonPushed) 
         return(
             <div>
-            <TranslateTranslation letter={letter} />
+                <TranslateTranslation letter={letter} setButtonPushed={setButtonPushed}/>
             </div>
         )
     })
-
-
-
     
+
+    useEffect(()=>{
+        //onmounted
+        console.log("parent mounted")
+        return () => {
+            console.log("parent unmounted")
+        }
+    },[])
 
     return(
         <>
+        <img className="img-logo" src={process.env.PUBLIC_URL + "Logo-Hello.png"} alt="Image of a hand"></img>
         <div className="translate-input">
         <input type="text" onChange={ handleOnChange } placeholder="Enter word or sentence..."></input>
-        <button onClick={ handleOnClick }>Translate</button>
+        <button className="translate-button" onClick={ handleOnClick }>{String.fromCharCode(8594)}</button>
         </div>
         
         <div className="translate-box">
-            <div className="sign-flex">
-            {buttonPushed ? translate : null}
-            </div>
+            {/* {buttonPushed ? translate : null} */}
+            {translate}
         </div>
         </>
 
