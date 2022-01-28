@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, NavLink } from 'react-router-dom';
 import './App.css';
 import Translate from './components/Views/Translate'
 import StartPage from './components/Views/StartPage'
+import ProfilePage from './components/Views/ProfilePage'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Routes>
           <Route path='/' element={<StartPage />} />
           <Route path='/translate' element={<Translate />} />
+          <Route path='/profile' element={<ProfilePage />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -17,6 +19,5 @@ function App() {
 }
 
 
-// testing git Frosti
 
 export default App;
