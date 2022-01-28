@@ -6,6 +6,7 @@ const TranslateUserInput = () => {
     const [userinput, setUserInput] = useState('')
     const [buttonPushed, setButtonPushed] = useState(false)
     const [letterArray, setLetterArray] = useState([])
+    //Test commentary
 
 
     const handleOnChange = (event) => {
