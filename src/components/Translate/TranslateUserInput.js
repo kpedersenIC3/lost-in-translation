@@ -1,61 +1,73 @@
-import { useState, useEffect } from "react"
+import { useState, useContext } from "react"
 import TranslateTranslation from "./TranslateTranslation.js"
-const TranslateUserInput = () => {
+import Header from "../Header.js"
+import { UserAPI } from "../../App"
 
+const TranslateUserInput = () => {
+    //create states to be used
     const [userinput, setUserInput] = useState('')
     let [buttonPushed, setButtonPushed] = useState(false)
     let [letterArray, setLetterArray] = useState([])
+    //use context
+    let currentUser = useContext(UserAPI)
 
-
+    //get user input
     const handleOnChange = (event) => {
         setUserInput(event.target.value)
         letterArray.length = 0
     }
 
+    //translate into signs on click
     const handleOnClick = () => {
-        setButtonPushed(true)
-        let id = 0
-        for(let letter of userinput){
-            let letterObject = {}
-            letterObject["id"] = id
-            letterObject["letter"] = letter
-            letterArray.push(letterObject)
-            id++
+        const translationLength = 40
+
+        //make sure sentence is less than 40 characters
+        if(userinput.length <= translationLength){
+            setButtonPushed(true)
+            let id = 0
+            for(let letter of userinput){
+                let letterObject = {}
+                letterObject["id"] = id
+                letterObject["letter"] = letter
+                letterArray.push(letterObject)
+                id++
+            }
+
+            //Update translations array (max 10 allowed, first in first out):
+            if(currentUser.translations.length > 9){
+                currentUser.translations.shift()
+            }
+            currentUser.translations.push(userinput)
+            console.log("translations:", currentUser.translations)
         }
-        console.log("letterArray",letterArray)
-        console.log("buttoninhandleonclick",buttonPushed)
+        //alert user if sentence is too long
+        else{
+            window.alert(`Please keep the translation under ${translationLength} letters`)
+        }
     }
-    //THIS NEEDS TO BE RERUN ON RETRANSLATION
+    //map letter to print corresponding signs
     let translate = letterArray.map((letter)=>{
-        console.log("buttonintranslate",buttonPushed) 
         return(
-            <div>
+            <>
                 <TranslateTranslation letter={letter} setButtonPushed={setButtonPushed}/>
-            </div>
+            </>
         )
     })
     
 
-    useEffect(()=>{
-        //onmounted
-        console.log("parent mounted")
-        return () => {
-            console.log("parent unmounted")
-        }
-    },[])
-
     return(
         <>
-        <img className="img-logo" src={process.env.PUBLIC_URL + "Logo-Hello.png"} alt="Image of a hand"></img>
+        <Header />
         <div className="translate-input">
         <input type="text" onChange={ handleOnChange } placeholder="Enter word or sentence..."></input>
         <button className="translate-button" onClick={ handleOnClick }>{String.fromCharCode(8594)}</button>
         </div>
         
         <div className="translate-box">
-            {/* {buttonPushed ? translate : null} */}
             {translate}
+            <div className="translate-minibox">Translation</div>
         </div>
+        
         </>
 
     )
