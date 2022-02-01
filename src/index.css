@@ -1,56 +1,52 @@
 html {
   font-family: 'Sanchez', serif;
   height: 100%;
-  background-image: linear-gradient(180deg, #FFC75C 50%, white 50%);
+  width: 100%;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
 }
 
-.input-box {
+.start-input-box {
   background-image: linear-gradient(180deg, white 85%, #845EC2 15%);
   border-radius: 20px;
-  height: 150px;
-  width: 700px;
-  left: 50%;
+  height: 200px;
+  width: 880px;
+  left: 26%;
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.translate-box {
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(180deg, white 85%, #845EC2 15%);
-  border-radius: 20px;
-  height: 250px;
-  width: 700px;
-  left: 50%;
-  position: absolute;
-  top: 80%;
-  transform: translate(-50%, -50%);
+  top: 300px;
   text-align: center;
   box-shadow: -2px -2px 9px 4px #969696;
 }
-.translate-input {
-  left: 50%;
+.start-title{
   position: absolute;
-  top: 30%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  margin-top: 70px;
+  top:100px;
+  left: 420px;
+  color: #EFEFEF;
+  font-size: 45px;
+  rotate: -5deg;
+  min-width: 400px;
 }
+
 input[type="text"] {
   background-color: #EFEFEF;
   color: #969696;
   border-radius: 40px;
   margin-top: 30px;
-  height:60px;
-  width: 580px;
+  height:70px;
+  width: 800px;
   border-color: #969696;
   border-style: solid;
-  text-align: justify;
-  font-size: 30px;
+  text-align: left;
+  font-size: 40px;
+  text-indent: 15px;
 }
 
-.translate-button {
+
+.login-button {
   font-family: 'Sanchez', serif;
   background-color:#845EC2;
   color:#EFEFEF;
@@ -58,13 +54,13 @@ input[type="text"] {
   border-style: solid;
   font-size: 30px;
   font-weight: bold;
-  width: 55px;
-  height: 55px;
+  width: 65px;
+  height: 65px;
   position: absolute;
-  transform: translate(-62px, 36px);
+  transform: translate(-70px, 35px);
 }
 
-h4, h1 {
+h4, h1, header {
   font-family: 'Love Ya Like A Sister', cursive;
 }
 
@@ -73,17 +69,204 @@ img {
   margin-right: auto;
 }
 
-.img-logo{
-  width: 500px;
+.translate-page{
+  position: relative;
 }
-/* 
-.sign-flex{
+.start-page{
+  position: relative;
+}
+.profile-page{
+  position: relative;
+}
+.profile-box {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  background-image: linear-gradient(180deg, white 85%, #845EC2 15%);
+  border-radius: 20px;
+  height: auto;
+  min-height: 300px;
+  width: 860px;
+  position: absolute;
+  left: 26%;
+  top:320px;
+  transform: translate(0px, 0px);
+  box-shadow: -2px -2px 9px 4px #969696;
+  padding-bottom: 50px;
+  padding-left: 20px;
+  text-align: left;
+  text-align: justify;
+  font-size: 30px;
+}
+.profile-title{
+  font-size: 50px;
+  position: absolute;
+  transform: translate(540px, -240px);
+  color: #EFEFEF;
+  min-width: 700px;
+}
 
-} */
+.translate-box {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  background-image: linear-gradient(180deg, white 85%, #845EC2 15%);
+  border-radius: 20px;
+  height: auto;
+  min-height: 200px;
+  width: 860px;
+  position: absolute;
+  left: 26%;
+  top:420px;
+  transform: translate(0px, 0px);
+  box-shadow: -2px -2px 9px 4px #969696;
+  padding-bottom: 50px;
+}
+.translate-input {
+  left: 27%;
+  position: absolute;
+  top: 200px;
+  transform: translate(0px, 0px);
+  text-align: center;
+  margin-top: 70px;
+}
+.translate-minibox{
+  position: absolute;
+  top: 88%;
+  left: 3%;
+  height:auto;
+  transform: translate(0px, 0px);
+  border-style: solid;
+  background-color: #EFEFEF;
+  border-radius: 20px;
+  border-color: #EFEFEF;
+  padding-left: 2px;
+  padding-right: 2px;
+
+}
+.translate-button {
+  font-family: 'Sanchez', serif;
+  background-color:#845EC2;
+  color:#EFEFEF;
+  border-radius: 40px;
+  border-style: solid;
+  font-size: 30px;
+  font-weight: bold;
+  width: 65px;
+  height: 65px;
+  position: absolute;
+  transform: translate(-70px, 35px);
+}
+.translate-sign{
+  width: 60px;
+  height: 60px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 .img-sign{
-  flex: 1;
-  width: 70px;
+  width: 60px;
+  height: 60px;
+}
+
+.translate-header{
+  height: 450px;
+  width: 100vw;
+  background-color: #FFC75C;
+
+}
+.profile-button{
+  position: absolute;
+  top:50px;
+  left:1300px;
+  background-image: url("https://www.freeiconspng.com/uploads/clipart--person-icon--cliparts-15.png");
+  background-size: 50px;
+  background-color: #ad86ec;
+  border:  #845EC2 solid 4px;
+  border-radius: 50px;
+  width: 100px;
+  height:100px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-username{
+  align-self: center;
+  position: absolute;
+  top:100px;
+  left: 1350px;
+  min-width: auto;
+  font-size: 30px;
+  border:#845EC2 solid 4px;
+  background-color: #ad86ec;
+  border-radius: 30px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.start-header{
+  display: flex;
+  height: 150px;
+}
+.img-logo{
+  position: absolute;
+  transform: translate(162px, 26px);
+  width: 150px;
+}
+.img-splash{
+  width:200px;
+  position: absolute;
+  transform: translate(145px, -25px);
+}
+.header-title{
+  font-size: 70px;
+  position: absolute;
+  transform: translate(370px, -20px);
+  color: #EFEFEF;
+  min-width: 700px;
+}
+
+hr{
+  width:2000px;  
+  border-width: 2px;
+  border-style: solid;
+  border-color:#ce8c13;
+  position: absolute;
+  transform: translate(0px, -250px);
+  opacity: 0.5;
+}
+
+.profilepage-button{
+  font-family: 'Sanchez', serif;
+  font-size: 20px;
+  border-radius: 70px;
+}
+#translate{
+  background-color:#ad86ec;
+  border: solid #845EC2;
+  color: #EFEFEF;
+  position: absolute;
+  top: 110%;
+  left: 35%;
+  padding: 10px;
+}
+#clear{
+  background-color:#FFC75C;
+  border-style: none;
+  color: #EFEFEF;
+  position: absolute;
+  top: 86%;
+  left: 2%;
+  padding: 10px;
+}
+#logout{
+  background-color:#ad86ec;
+  border: solid #845EC2;
+  color: #EFEFEF;
+  position: absolute;
+  top: 155px;
+  left: 1300px;
+  min-width: 110px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
